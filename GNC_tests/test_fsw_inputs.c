@@ -7,7 +7,7 @@ gyro_omega_body_radps[4], faceinsun_body_unit[3],
 sun_vec_body_sunsensor[4], orbit_tle[9], GPS_time[2]
 ========================================================================================*/
 #include "fsw_lib.h"
-const ExtU Inputs[] = {
+static const ExtU Inputs[] = {
 	{.MT_pwr={0, 0, 0}, .MT_valid={1, 1, 1}, .RW_pwr={0, 0, 0}, .RW_rpm={0, 0, 0}, .RW_valid={1, 1, 1}, .thruster_on=0, .MET=0, .MET_epoch=5.9957e+08, .telecom={0, 0, 1}, .mag_vec_body_T={0, 0, 0, 0}, .gyro_omega_body_radps={0, 0, 0, 0}, .faceinsun_body_unit={0, 0, 0}, .sun_vec_body_sunsensor={0, 1, 0, 0}, .orbit_tle={19, 6939.5, 3.2923e-05, 54.615, 247.46, 0.0006703, 130.54, 325.03, 15.721}, .GPS_time={1.7282e+05, 2034}},
 	{.MT_pwr={0, 0, 0}, .MT_valid={1, 1, 1}, .RW_pwr={0, 0, 0}, .RW_rpm={0, 0, 0}, .RW_valid={1, 1, 1}, .thruster_on=0, .MET=0.1, .MET_epoch=5.9957e+08, .telecom={0, 0, 1}, .mag_vec_body_T={0, 0, 0, 0}, .gyro_omega_body_radps={0, 0, 0, 1}, .faceinsun_body_unit={0, 0, 0}, .sun_vec_body_sunsensor={0.84624, 0.48858, 0.21253, 0}, .orbit_tle={19, 6939.5, 3.2923e-05, 54.615, 247.46, 0.0006703, 130.54, 325.03, 15.721}, .GPS_time={1.7282e+05, 2034}},
 	{.MT_pwr={0, 0, 0}, .MT_valid={1, 1, 1}, .RW_pwr={0, 0, 0}, .RW_rpm={0, 0, 0}, .RW_valid={1, 1, 1}, .thruster_on=0, .MET=0.2, .MET_epoch=5.9957e+08, .telecom={0, 0, 1}, .mag_vec_body_T={8.8248e-07, 2.2374e-07, 2.4063e-06, 1}, .gyro_omega_body_radps={0, 0, 0, 1}, .faceinsun_body_unit={0, 0, 0}, .sun_vec_body_sunsensor={0.84619, 0.48855, 0.21279, 0}, .orbit_tle={19, 6939.5, 3.2923e-05, 54.615, 247.46, 0.0006703, 130.54, 325.03, 15.721}, .GPS_time={1.7282e+05, 2034}},
