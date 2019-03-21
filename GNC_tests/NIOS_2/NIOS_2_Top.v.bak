@@ -1,0 +1,5 @@
+module NIOS_2_Top (
+	input 
+);
+
+endmodule 

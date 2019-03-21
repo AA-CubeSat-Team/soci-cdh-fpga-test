@@ -1,0 +1,18 @@
+Fitter Status : Successful - Tue Mar 19 23:47:20 2019
+Quartus Prime Version : 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+Revision Name : NIOS_2
+Top-level Entity Name : NIOS_2_Top
+Family : MAX 10
+Device : 10M50DAF484C6GES
+Timing Models : Preliminary
+Total logic elements : 1,723 / 49,760 ( 3 % )
+    Total combinational functions : 1,617 / 49,760 ( 3 % )
+    Dedicated logic registers : 871 / 49,760 ( 2 % )
+Total registers : 871
+Total pins : 1 / 360 ( < 1 % )
+Total virtual pins : 0
+Total memory bits : 1,444,864 / 1,677,312 ( 86 % )
+Embedded Multiplier 9-bit elements : 0 / 288 ( 0 % )
+Total PLLs : 0 / 4 ( 0 % )
+UFM blocks : 0 / 1 ( 0 % )
+ADC blocks : 0 / 2 ( 0 % )

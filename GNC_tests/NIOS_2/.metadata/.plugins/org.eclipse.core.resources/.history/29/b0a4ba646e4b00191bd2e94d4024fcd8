@@ -1,0 +1,29 @@
+#include <stdio.h>
+#define BUFFER_SIZE 16
+
+int main() {
+	printf("Entering NIOS II main...\n");
+	// Testing reading a file...
+	char buffer[BUFFER_SIZE];
+	FILE *file = fopen("/mnt/host/Test.txt", "r");
+	if(file == NULL) {
+		printf("Error reading file!\n");
+	}
+	else {
+		printf("Opening read file successful!\n");
+	}
+	fgets(buffer, BUFFER_SIZE, file);
+	printf("%s", buffer);
+	fclose(file);
+	// Testing writing a file...
+	FILE *target = fopen("/mnt/host/Output.txt", "w");
+	if(target == NULL) {
+		printf("Error writing file!\n");
+	}
+	else {
+		printf("Opening write file successful!\n");
+	}
+	fprintf(target,"%d", 5);
+	fclose(target);
+	return 0;
+}

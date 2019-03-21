@@ -1,0 +1,10 @@
+#include "sys/alt_stdio.h"
+
+int main() {
+	alt_putstr("Entering main...");
+	int test = 0;
+	printf("Number before %d", test);
+	scanf("%d", &test);
+	printf("Number entered: %d", test);
+	return(0);
+}

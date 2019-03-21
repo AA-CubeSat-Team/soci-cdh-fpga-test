@@ -1,0 +1,16 @@
+Analysis & Synthesis Status : Successful - Tue Mar 19 23:47:01 2019
+Quartus Prime Version : 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+Revision Name : NIOS_2
+Top-level Entity Name : NIOS_2_Top
+Family : MAX 10
+Total logic elements : 1,781
+    Total combinational functions : 1,612
+    Dedicated logic registers : 879
+Total registers : 879
+Total pins : 1
+Total virtual pins : 0
+Total memory bits : 1,444,864
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0
+UFM blocks : 0
+ADC blocks : 0
