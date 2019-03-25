@@ -1,0 +1,79 @@
+Disclaimer:
+* This resource analysis may not be entirely accurate, since a lot
+  of guesstimation had to be done in the process
+* This analysis is an estimate of the MINIMAL resource required, as
+  additional resource may be needed if there are additional
+  timing, efficiency, or other constraints
+* I was not able to get clock() working properly in
+  NIOS II environment. Thus, this version is implemented with
+  a manual delay called 'ONE_TICK', as shown in 'ert_main.c'
+=======================================================================
+My process of analysis and results are as below:
+-----------------------------------------------------------------------
+First, I initialized a template in Eclipse for NIOS II, with
+3 rows of data from the CSV file.
+The purpose of this is to establish a base resource usage for the
+processor to remain functional.
+
+The output for running 'nios2-elf-size NIOS_2.elf' in
+Command Shell is as follows:
+   text    data     bss     dec     hex   filename
+  65004    6892     352   72248   11a38   NIOS_2.elf
+
+The output for running 'nios2-stackreport NIOS_2.elf' in 
+Command Shell is as follows:
+Info: (NIOS_2.elf) 70 KBytes program size (code + initialized data).
+Info:              98 KBytes free for stack + heap.
+
+From this, I noticed that the stack/heap size is dangerously small.
+Thus, I enabled the 'enable_runtime_stack_checking' functionality, to
+check for stack corruption during runtime.
+-----------------------------------------------------------------------
+Next, I pulled in the following files into eclipse:
+* ert_main.c
+* fsw_lib.c
+* fsw_lib_data.c
+* fsw_lib.h
+* rtwtypes.h
+* test_fsw_inputs.h
+Upon compiling, I unfortunately received the message:
+"region `onchip_memory2_0' overflowed by 53136 bytes"
+However, by calculation, we would need approximately 222~229 kB MINIMUM
+to have this compile.
+=======================================================================
+Attempting to make this actually run, I decided to use the "-Os" flag
+for compilation, and remove other unnecessary libraries.
+This will result in less usage of resource, and a lower approximation
+of resource usage, but the expense of performance.
+Since we do not yet know what hardware we are going to use, I will
+assume this is bad approximation.
+
+Running 'nios2-elf-size NIOS_2.elf' to establish base outputs:
+   text    data     bss     dec     hex   filename
+  61020    6892     352   68264   10aa8   NIOS_2.elf
+
+Running 'nios2-stackreport NIOS_2.elf' to establish base outputs:
+Info: (NIOS_2.elf) 66 KBytes program size (code + initialized data).
+Info:              102 KBytes free for stack + heap.
+-----------------------------------------------------------------------
+After enabling 'enable_runtime_stack_checking' and running the code:
+  Entering Loop...
+  Running OneStep() for Input[0]
+  Running OneStep() for Input[1]
+  Running OneStep() for Input[2]
+  Warning: The simulation will run forever. Generated ERT main won't 
+  simulate model step behavior. To change this behavior select the 
+  'MAT-file logging' option.
+
+After running 'nios2-elf-size NIOS_2.elf':
+   text    data     bss     dec     hex   filename
+ 157676    6916    2176  166768   28b70   NIOS_2.elf
+
+After running 'nios2-stackreport NIOS_2.elf':
+Info: (NIOS_2.elf) 162 KBytes program size (code + initialized data).
+Info:              6540 Bytes free for stack + heap.
+
+The code ran without stack corruption, but was very close to running
+out of memory(This was under -Os optimization, with only 3 data entries).
+
+Under optimization for size, the MINIMAL resource useage is around 102 kB.
