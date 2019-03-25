@@ -1,0 +1,5 @@
+Entering Loop...
+Running OneStep() for Input[0]
+Running OneStep() for Input[1]
+Running OneStep() for Input[2]
+Warning: The simulation will run forever. Generated ERT main won't simulate model step behavior. To change this behavior select the 'MAT-file logging' option.
