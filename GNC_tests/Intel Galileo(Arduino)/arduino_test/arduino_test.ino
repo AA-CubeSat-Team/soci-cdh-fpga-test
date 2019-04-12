@@ -66,67 +66,7 @@ void Print_Results(ExtY input) {
   }
 }
 
-  Serial.print("sc_quat = ");
-  for(int i = 0; i < 4; i++) {
-    Serial.print((double)input.sc_quat[i]);
-  }
-  Serial.println();
-  
-  Serial.print("body_rates = ");
-  for(int i = 0; i < 3; i++) {
-    Serial.print((double)input.body_rates[i]);
-  }
-  Serial.println();
-  
-  Serial.print("sc_mode = ");
-  Serial.println((signed char)input.sc_mode);
-  
-  Serial.print("vel_point = ");
-  Serial.println((unsigned char)input.vel_point);
-  
-  Serial.print("quat_cmd = ");
-  for(int i = 0; i < 4; i++) {
-    Serial.print((double)input.quat_cmd[i]);
-  }
-  Serial.println();
-  
-  Serial.print("sc_above_gs = ");
-  Serial.println((unsigned char)input.sc_above_gs);
-  
-  Serial.print("sc_in_sun = ");
-  Serial.println((unsigned char)input.sc_in_sun);
-  
-  Serial.print("mag_eci_unit = ");
-  for(int i = 0; i < 3; i++) {
-    Serial.println((double)input.mag_eci_unit[i]);
-  }
-  Serial.println();
-  
-  Serial.print("pos_eci_km = ");
-  for(int i = 0; i < 3; i++) {
-    Serial.println((double)input.pos_eci_km[i]);
-  }
-  Serial.println();
-  
-  Serial.print("vel_eci_kmps = ");
-  for(int i = 0; i < 3; i++) {
-    Serial.println((double)input.vel_eci_kmps[i]);
-  }
-  Serial.println();
-  
-  Serial.print("gyro_valid = ");
-  Serial.println((unsigned char)input.gyro_valid);
-  
-  Serial.print("cmd_RW_rpm = ");
-  for(int i = 0; i < 3; i++) {
-    Serial.println((double)input.cmd_RW_rpm[i]);
-  }
-  
-  Serial.print("cmd_MT_dv = ");
-  for(int i = 0; i < 3; i++) {
-    Serial.println((signed char)input.cmd_MT_dv[i]);
-  }
-}
+
 
 void rt_OneStep(void)
 {
