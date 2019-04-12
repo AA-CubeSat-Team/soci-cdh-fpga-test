@@ -10,62 +10,77 @@ extern "C" {
 }
 
 void Print_Results(ExtY input) {
-  Serial.println("sc_quat = ");
+  Serial.print("sc_quat \t= ");
   for(int i = 0; i < 4; i++) {
-    Serial.println(input.sc_quat[i]);
+    Serial.print(input.sc_quat[i]);
+    Serial.print("   ");
   }
+  Serial.println();
   
-  Serial.println("body_rates = ");
+  Serial.print("body_rates \t= ");
   for(int i = 0; i < 3; i++) {
-    Serial.println(input.body_rates[i]);
+    Serial.print(input.body_rates[i]);
+    Serial.print("   ");
   }
+  Serial.println();
   
-  Serial.print("sc_mode = ");
+  Serial.print("sc_mode \t= ");
   Serial.println(input.sc_mode);
   
-  Serial.print("vel_point = ");
+  Serial.print("vel_point \t= ");
   Serial.println(input.vel_point);
   
-  Serial.println("quat_cmd = ");
+  Serial.print("quat_cmd \t= ");
   for(int i = 0; i < 4; i++) {
-    Serial.println(input.quat_cmd[i]);
+    Serial.print(input.quat_cmd[i]);
+    Serial.print("   ");
   }
+  Serial.println();
   
-  Serial.print("sc_above_gs = ");
+  Serial.print("sc_above_gs \t= ");
   Serial.println(input.sc_above_gs);
   
-  Serial.print("sc_in_sun = ");
+  Serial.print("sc_in_sun \t= ");
   Serial.println(input.sc_in_sun);
   
-  Serial.println("mag_eci_unit = ");
+  Serial.print("mag_eci_unit \t= ");
   for(int i = 0; i < 3; i++) {
-    Serial.println(input.mag_eci_unit[i]);
+    Serial.print(input.mag_eci_unit[i]);
+    Serial.print("   ");
   }
+  Serial.println();
   
-  Serial.println("pos_eci_km = ");
+  Serial.print("pos_eci_km \t= ");
   for(int i = 0; i < 3; i++) {
-    Serial.println(input.pos_eci_km[i]);
+    Serial.print(input.pos_eci_km[i]);
+    Serial.print("   ");
   }
+  Serial.println();
   
-  Serial.println("vel_eci_kmps = ");
+  Serial.print("vel_eci_kmps \t= ");
   for(int i = 0; i < 3; i++) {
-    Serial.println(input.vel_eci_kmps[i]);
+    Serial.print(input.vel_eci_kmps[i]);
+    Serial.print("   ");
   }
+  Serial.println();
   
-  Serial.print("gyro_valid = ");
+  Serial.print("gyro_valid \t= ");
   Serial.println(input.gyro_valid);
   
-  Serial.println("cmd_RW_rpm = ");
+  Serial.print("cmd_RW_rpm \t= ");
   for(int i = 0; i < 3; i++) {
-    Serial.println(input.cmd_RW_rpm[i]);
+    Serial.print(input.cmd_RW_rpm[i]);
+    Serial.print("   ");
   }
+  Serial.println();
   
-  Serial.println("cmd_MT_dv = ");
+  Serial.print("cmd_MT_dv \t= ");
   for(int i = 0; i < 3; i++) {
-    Serial.println(input.cmd_MT_dv[i]);
+    Serial.print(input.cmd_MT_dv[i]);
+    Serial.print("   ");
   }
+  Serial.println();
 }
-
 
 
 void rt_OneStep(void)
