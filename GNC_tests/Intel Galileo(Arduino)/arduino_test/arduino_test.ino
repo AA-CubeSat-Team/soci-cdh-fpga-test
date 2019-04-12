@@ -220,6 +220,8 @@ void loop() {
       uint32_t ts3 = micros();
       Serial.print("Time after rt_OneStep() = ");
       Serial.println(ts3);
+      Serial.print("Time elapsed between rt_OneStep = ");
+      Serial.print(ts3-ts2);
       Serial.println("Printing results...");
       Print_Results(rtY);
     }
@@ -227,6 +229,8 @@ void loop() {
     uint32_t ts4 = micros();
     Serial.print("Stopping rt_OneStop() loop at time = ");
     Serial.println(ts4);
+    Serial.print("Time elapsed between rt_OneStep() loop calls = ");
+    Serial.print(ts4-ts1);
     
     Serial.print("Warning: The simulation will run forever.\n"
                  "Generated ERT main won't simulate model step behavior.\n"
