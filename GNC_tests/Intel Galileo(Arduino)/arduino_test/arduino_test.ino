@@ -236,7 +236,7 @@ void loop() {
       Serial.print("Time after rt_OneStep() = ");
       Serial.println(ts3);
       Serial.print("Time elapsed between rt_OneStep = ");
-      Serial.print(ts3-ts2);
+      Serial.println(ts3-ts2);
       Serial.println("Printing results...");
       Print_Results(rtY);
     }
