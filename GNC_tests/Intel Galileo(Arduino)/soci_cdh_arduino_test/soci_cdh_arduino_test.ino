@@ -9,17 +9,15 @@ extern "C" {
 }
 
 void Print_Results(ExtY input) {
-  Serial.print("sc_quat = ");
+  Serial.println("sc_quat = ");
   for(int i = 0; i < 4; i++) {
-    Serial.print(input.sc_quat[i]);
+    Serial.println(input.sc_quat[i]);
   }
-  Serial.println();
   
-  Serial.print("body_rates = ");
+  Serial.println("body_rates = ");
   for(int i = 0; i < 3; i++) {
-    Serial.print(input.body_rates[i]);
+    Serial.println(input.body_rates[i]);
   }
-  Serial.println();
   
   Serial.print("sc_mode = ");
   Serial.println(input.sc_mode);
@@ -27,11 +25,10 @@ void Print_Results(ExtY input) {
   Serial.print("vel_point = ");
   Serial.println(input.vel_point);
   
-  Serial.print("quat_cmd = ");
+  Serial.println("quat_cmd = ");
   for(int i = 0; i < 4; i++) {
-    Serial.print(input.quat_cmd[i]);
+    Serial.println(input.quat_cmd[i]);
   }
-  Serial.println();
   
   Serial.print("sc_above_gs = ");
   Serial.println(input.sc_above_gs);
@@ -39,33 +36,30 @@ void Print_Results(ExtY input) {
   Serial.print("sc_in_sun = ");
   Serial.println(input.sc_in_sun);
   
-  Serial.print("mag_eci_unit = ");
+  Serial.println("mag_eci_unit = ");
   for(int i = 0; i < 3; i++) {
     Serial.println(input.mag_eci_unit[i]);
   }
-  Serial.println();
   
-  Serial.print("pos_eci_km = ");
+  Serial.println("pos_eci_km = ");
   for(int i = 0; i < 3; i++) {
     Serial.println(input.pos_eci_km[i]);
   }
-  Serial.println();
   
-  Serial.print("vel_eci_kmps = ");
+  Serial.println("vel_eci_kmps = ");
   for(int i = 0; i < 3; i++) {
     Serial.println(input.vel_eci_kmps[i]);
   }
-  Serial.println();
   
   Serial.print("gyro_valid = ");
   Serial.println(input.gyro_valid);
   
-  Serial.print("cmd_RW_rpm = ");
+  Serial.println("cmd_RW_rpm = ");
   for(int i = 0; i < 3; i++) {
     Serial.println(input.cmd_RW_rpm[i]);
   }
   
-  Serial.print("cmd_MT_dv = ");
+  Serial.println("cmd_MT_dv = ");
   for(int i = 0; i < 3; i++) {
     Serial.println(input.cmd_MT_dv[i]);
   }
@@ -188,9 +182,6 @@ void rt_OneStep(void)
 
 
 int main(int argc, const char *argv[]) {
-  // test program runs
-
-  
   Serial.begin(9600);
 
   /* Unused arguments */
@@ -199,16 +190,6 @@ int main(int argc, const char *argv[]) {
   
   /* Initialize model */
   fsw_lib_initialize();
-
-    int led = 13;
-  pinMode(led, OUTPUT);
-  while(1) { 
-    digitalWrite(led, HIGH);   // turn the LED on (HIGH is the voltage level)
-    delay(1000);               // wait for a second
-    digitalWrite(led, LOW);    // turn the LED off by making the voltage LOW
-    delay(1000);               // wait for a second
-    Serial.print(10);
-  }
 
   /* Attach rt_OneStep to a timer or interrupt service routine with
    * period 0.005 seconds (the model's base sample time) here.  The
@@ -247,7 +228,6 @@ int main(int argc, const char *argv[]) {
   /* Disable rt_OneStep() here */
 
   /* Terminate model */
-    digitalWrite(led, LOW); 
   fsw_lib_terminate();
   return 0;
 }
