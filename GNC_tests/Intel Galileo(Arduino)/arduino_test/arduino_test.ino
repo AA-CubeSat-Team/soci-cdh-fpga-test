@@ -245,7 +245,7 @@ void loop() {
     Serial.print("Stopping rt_OneStop() loop at time = ");
     Serial.println(ts4);
     Serial.print("Time elapsed between rt_OneStep() loop calls = ");
-    Serial.print(ts4-ts1);
+    Serial.println(ts4-ts1);
     
     Serial.print("Warning: The simulation will run forever.\n"
                  "Generated ERT main won't simulate model step behavior.\n"
