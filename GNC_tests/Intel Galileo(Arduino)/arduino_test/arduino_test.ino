@@ -198,6 +198,43 @@ void rt_OneStep(void)
   /* Enable interrupts here */
 }
 
+void swap(uint32_t *xp, uint32_t *yp) 
+{ 
+    uint32_t temp = *xp; 
+    *xp = *yp; 
+    *yp = temp; 
+} 
+  
+// A function to implement bubble sort 
+void bubbleSort(uint32_t arr[], int n) 
+{ 
+   int i, j; 
+   for (i = 0; i < n-1; i++)       
+  
+       // Last i elements are already in place    
+       for (j = 0; j < n-i-1; j++)  
+           if (arr[j] > arr[j+1]) 
+              swap(&arr[j], &arr[j+1]); 
+} 
+
+double calculateSD(uint32_t data[], int array_size)
+{
+    double sum = 0.0, mean, standardDeviation = 0.0;
+
+    int i;
+
+    for(i=0; i<array_size; ++i)
+    {
+        sum += data[i];
+    }
+
+    mean = sum/10;
+
+    for(i=0; i<array_size; ++i)
+        standardDeviation += pow(data[i] - mean, 2);
+
+    return sqrt(standardDeviation/array_size);
+}
 
 void setup() {
   Serial.begin(9600);
@@ -215,7 +252,8 @@ void loop() {
      */
     // Clocked for 5ms per rt_OneStep()
     int array_size = sizeof(Inputs) / sizeof(ExtU);
-    
+
+    uint32_t data [array_size];
     // time_t timer = clock();
     uint32_t ts1 = micros();
     Serial.print("Starting rt_OneStop() loop at time = ");
@@ -237,6 +275,7 @@ void loop() {
       Serial.println(ts3);
       Serial.print("Time elapsed between rt_OneStep = ");
       Serial.println(ts3-ts2);
+      data[i] = ts3-ts2;
       Serial.println("Printing results...");
       Print_Results(rtY);
     }
@@ -246,6 +285,24 @@ void loop() {
     Serial.println(ts4);
     Serial.print("Time elapsed between rt_OneStep() loop calls = ");
     Serial.println(ts4-ts1);
+    
+    //print timing analysis
+    bubbleSort(data, array_size);
+    Serial.print("Max time: ");
+    Serial.println(data[array_size-1]);
+    Serial.print("Min time");
+    Serial.println(data[0]);
+    Serial.print("Median time");
+    Serial.println(data[array_size/2]);
+    Serial.print("Average Time");
+    uint32_t sum = 0;
+    for(int i = 0; i < array_size; i++) {
+      sum += data[i];
+    }
+    Serial.println(1.0 * sum / array_size );
+    Serial.print("Std deviation");
+    Serial.println(calculateSD(data, array_size));
+    
     
     Serial.print("Warning: The simulation will run forever.\n"
                  "Generated ERT main won't simulate model step behavior.\n"
