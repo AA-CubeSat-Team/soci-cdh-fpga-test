@@ -290,17 +290,17 @@ void loop() {
     bubbleSort(data, array_size);
     Serial.print("Max time: ");
     Serial.println(data[array_size-1]);
-    Serial.print("Min time");
+    Serial.print("Min time: ");
     Serial.println(data[0]);
-    Serial.print("Median time");
+    Serial.print("Median time: ");
     Serial.println(data[array_size/2]);
-    Serial.print("Average Time");
+    Serial.print("Average Time: ");
     uint32_t sum = 0;
     for(int i = 0; i < array_size; i++) {
       sum += data[i];
     }
     Serial.println(1.0 * sum / array_size );
-    Serial.print("Std deviation");
+    Serial.print("Std deviation: ");
     Serial.println(calculateSD(data, array_size));
     
     
