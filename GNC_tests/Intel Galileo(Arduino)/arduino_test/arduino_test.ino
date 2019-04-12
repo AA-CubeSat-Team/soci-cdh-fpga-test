@@ -228,7 +228,7 @@ double calculateSD(uint32_t data[], int array_size)
         sum += data[i];
     }
 
-    mean = sum/10;
+    mean = sum/array_size;
 
     for(i=0; i<array_size; ++i)
         standardDeviation += pow(data[i] - mean, 2);
